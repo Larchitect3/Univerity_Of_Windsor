@@ -1,0 +1,13 @@
+Lab 02: Bash programming
+
+
+1. Write a bash script to separately list directories and files.
+
+
+2. Write a bash script to list all regular files in the current directory 
+    that are smaller than n bytes (n is an integer argument).
+
+
+3. Write a bash-shell script to replace all occurrences of a word by another 
+   word in a file.
+   Synopsis: replaceWord <inFile> <word> <repWord> <outFile>

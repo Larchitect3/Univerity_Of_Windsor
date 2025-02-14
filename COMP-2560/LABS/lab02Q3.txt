@@ -1,0 +1,17 @@
+#!/bin/bash
+
+nbLines=`more $1 | wc -l`
+echo > $4
+i=1
+while [ $i -le $nbLines ] ; do
+	line=`head -n $i $1 | tail -n 1`
+	for word in $line; do
+		if [ $word == $2 ]; then
+		    word=$3
+		fi
+	echo -n "$word " >> $4
+	done
+	let i=$i+1
+	echo >> $4
+
+done

@@ -1,0 +1,19 @@
+!#/bin/bash
+
+echo Here are the directories:
+for name in `ls`; do
+	if [ -d $name ]; then
+		echo $name
+	fi
+done
+
+echo Here are the regular files:
+for name in `ls`; do
+	if [ -f $name ]; then
+		echo $name
+	fi
+done
+
+
+
+

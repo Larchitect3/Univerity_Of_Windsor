@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html><head><link rel="stylesheet" href="https://s.brightspace.com/lib/fonts/0.6.1/fonts.css"></head><body style="color: rgb(32, 33, 34); font-family: Lato, sans-serif; font-size: 12px;"><p>Write a bash script, call it countExtScript.bash, that takes a list extensions and for each extension saves the total number of files it finds in a directory.</p>
+<p>Synopsis:&nbsp;&nbsp;<strong>countExtScript.bash</strong>&nbsp; [-t targetDir] [-c countFile] &lt;extension-list&gt;</p>
+<p>where options:</p>
+<p>-t : specify a target directory (if missing then use current directory .).</p>
+<p>-c : specify a text file to save counts. For each extension, the script writes a line consisting of extension name, a space and the file count. When -c is</p>
+<p>&nbsp; &nbsp; &nbsp; missing, counts are printed to the screen.</p>
+<p>Call examples:</p>
+<p>%&gt; countExtScript.bash -t&nbsp; ~&nbsp; -c total.txt&nbsp; doc pdf jpg&nbsp; &nbsp; &nbsp;# target directory is&nbsp;<strong>home directory (~)</strong>&nbsp;and results are to be saved in file&nbsp;<strong>total.txt.</strong></p>
+<p>%&gt; countExtScript.bash txt pdf jpg&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;# target directory is&nbsp;<strong>current directory (.)</strong>&nbsp;and results are to be printed on the screen.</p>
+<p>%&gt; countExtScript.bash -t oldFiles txt pdf jpg&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; # target directory is&nbsp;<strong>oldFiles&nbsp;</strong>and results are to be printed on the screen.</p>
+<p>Hints:</p>
+<p>- Read about command&nbsp;<strong>getopts</strong>, to parse through options (Look at this example:&nbsp;<a href="https://linuxhint.com/bash_getopts_example/)">https://linuxhint.com/bash_getopts_example/)</a></p>
+<p>- Define two variables,&nbsp;<strong>countFile=/dev/stdout</strong>&nbsp;and&nbsp;<strong>targetDir=./&nbsp; &nbsp; &nbsp; &nbsp;#</strong>&nbsp;By default, result file is screen and target directory is current directory.</p>
+<p>- If -t is used, update variable&nbsp;<strong>targetDir</strong>&nbsp;to the directory name argument.&nbsp;&nbsp;</p>
+<p>- If -c is used, update variable&nbsp;<strong>countFile</strong>&nbsp;to the file name argument.</p>
+<p>- Skip all options from argument list using:&nbsp;<strong>shift $((OPTIND-1))</strong></p>
+<p>- Then use a loop that looks like:</p>
+<p>&nbsp; for ext in $* ; do&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; # for each extension in passed arguments, save the number of file</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;echo&nbsp; ???????????????? &gt; $countFile&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; # in ?????????? you can use<strong>&nbsp;ls&nbsp;</strong>and<strong>&nbsp;wc</strong>&nbsp;commands with the right options to get count.</p></body></html>

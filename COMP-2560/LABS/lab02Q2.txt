@@ -1,0 +1,16 @@
+#!/bin/bash
+
+
+echo Here are the regular files with sizes greater than $1:
+for name in `ls`; do
+	if [ -f $name ]; then
+	        fileSize=`more $name |  wc -c`
+	       if [[ $fileSize -ge $1 ]]; then
+		echo $name:$fileSize
+	       fi
+	fi
+done
+
+
+
+

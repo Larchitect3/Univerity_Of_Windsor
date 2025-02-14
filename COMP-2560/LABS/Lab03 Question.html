@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html><head><link rel="stylesheet" href="https://s.brightspace.com/lib/fonts/0.6.1/fonts.css"></head><body style="color: rgb(32, 33, 34); font-family: Lato, sans-serif; font-size: 12px;"><p>Lab#4:</p>
+<p></p>
+<p>First, read the manual and get online help about the two system calls <strong>read()</strong>&nbsp;and <strong>write()</strong>.<br>Then, use the system calls <strong>read</strong>() and <strong>write</strong>() to define two functions, <strong>readInt</strong>(),&nbsp;<br>and <strong>printInt</strong>() for reading and writing integers from/to the keyboard/screen.</p>
+<p>When the user enters a nonvalid integer, <strong>readInt</strong>() shoudld print&nbsp;<br>an error message, using <strong>write</strong>(), and should exit with the code 1 (i.e., exit(1)).</p>
+<p>Use the program below in your test runs.</p>
+<p><br>#include&lt;stdlib.h&gt;<br>#include &lt;unistd.h&gt;<br>#include &lt;fcntl.h&gt;</p>
+<p>int readInt();<br>void printInt(int);</p>
+<p>int main(int argc, char *argv[]){<br>&nbsp; int intNum1, intNum2, intSum;<br>&nbsp; char message1[20]="Enter an integer&gt; ";<br>&nbsp; char message2[40]="the sum of the two numbers is: ";</p>
+<p>&nbsp; write(STDOUT_FILENO, message1, 18);<br>&nbsp; intNum1 = readInt();</p>
+<p>&nbsp; write(STDOUT_FILENO, message1, 18);<br>&nbsp; intNum2 = readInt();</p>
+<p>&nbsp; intSum = intNum1+intNum2;<br>&nbsp; write(STDOUT_FILENO, message2, 32);<br>&nbsp; printInt(intSum);<br>&nbsp; exit(0);<br>}</p>
+<p>int readInt(){</p>
+<p>&nbsp; &nbsp;complete the code here</p>
+<p>}</p>
+<p><br>void printInt(int val){</p>
+<p>complete the code here</p>
+<p>}</p></body></html>

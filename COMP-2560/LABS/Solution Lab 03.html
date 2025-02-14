@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html><head><link rel="stylesheet" href="https://s.brightspace.com/lib/fonts/0.6.1/fonts.css"></head><body style="color: rgb(32, 33, 34); font-family: Lato, sans-serif; font-size: 12px;"><p>#!/bin/bash</p>
+<p>if [ $# == 0 ]; then<br>&nbsp; &nbsp; echo "Usage: $0 [-t targetDir] &nbsp;[-c countFile] &lt;ext-list&gt;"<br>&nbsp; &nbsp; exit<br>fi</p>
+<p>targetDir=./ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; # default target directory<br>countFile=/dev/stdout &nbsp; &nbsp;# default result file is screen (standard output)</p>
+<p>while getopts ":t:c:" options; do &nbsp;# take care of possible options<br>&nbsp; &nbsp; case "${options}" in&nbsp;<br>&nbsp; &nbsp; t) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<br>&nbsp; &nbsp; &nbsp; targetDir=${OPTARG} &nbsp; &nbsp;&nbsp;<br>&nbsp; &nbsp; &nbsp; ;;<br>&nbsp; &nbsp; c) &nbsp;<br>&nbsp; &nbsp; &nbsp; countFile=${OPTARG} &nbsp;&nbsp;<br>&nbsp; &nbsp; &nbsp; ;;<br>&nbsp; &nbsp; *)<br>&nbsp; &nbsp; &nbsp; echo "Error: -${OPTARG} is an invalid option"<br>&nbsp; &nbsp; &nbsp; exit &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<br>&nbsp; &nbsp; &nbsp; ;;<br>&nbsp; esac<br>done</p>
+<p>shift $((OPTIND-1)) &nbsp; # advance to skip options</p>
+<p>echo target Directory is $targetDir &nbsp;and result file is $countFile</p>
+<p>echo -n &gt; $countFile &nbsp; &nbsp; # in case file exist, get rid of old contents</p>
+<p>for ext in $* ; do &nbsp; &nbsp; &nbsp;# for each extension save the number of file<br>&nbsp; &nbsp; echo $ext `ls $targetDir/*.$ext | wc -w` &gt;&gt; $countFile<br>done<br>exit 0</p></body></html>
